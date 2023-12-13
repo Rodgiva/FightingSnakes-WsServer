@@ -1,11 +1,11 @@
-import { WebSocketServer } from "ws";
+import { WebSocket } from "ws";
 import dotenv from "dotenv";
 
 dotenv.config();
 
-const PORT = process.env.WS_PORT;
-const wss = new WebSocketServer({ port: 8080 });
-console.log(`Websocket server running on port ${8080}`);
+const PORT = process.env.WS_PORT || 3000;
+const wss = new WebSocket.Server({ port: PORT });
+console.log(`Websocket server running on port ${PORT}`);
 
 // *** Lobby ***
 const users = [];
